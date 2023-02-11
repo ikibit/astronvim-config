@@ -88,17 +88,17 @@ local config = {
             bg = "#1e222a",
         },
         highlights = function(hl) -- or a function that returns a new table of colors to set
-          local C = require "default_theme.colors"
+            local C = require "default_theme.colors"
 
-          hl.Normal = { fg = C.fg, bg = C.bg }
+            hl.Normal = { fg = C.fg, bg = C.bg }
 
-          -- New approach instead of diagnostic_style
-          hl.DiagnosticError.italic = true
-          hl.DiagnosticHint.italic = true
-          hl.DiagnosticInfo.italic = true
-          hl.DiagnosticWarn.italic = true
+            -- New approach instead of diagnostic_style
+            hl.DiagnosticError.italic = true
+            hl.DiagnosticHint.italic = true
+            hl.DiagnosticInfo.italic = true
+            hl.DiagnosticWarn.italic = true
 
-          return hl
+            return hl
         end,
         -- enable or disable highlighting for extra plugins
         plugins = {
@@ -182,6 +182,16 @@ local config = {
             --     },
             --   },
             -- },
+            elixirls = {
+                cmd = { "/home/barbaros/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" }, -- Linux
+                -- cmd = { "C:/Users/Barbaros/AppData/Local/nvim-data/mason/packages/elixir-ls/language_server.bat" }, -- Windows
+                -- cmd = { "/Users/barbaroskurt/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" }, -- macOS
+            },
+            omnisharp = {
+                cmd = { "/home/barbaros/.local/share/nvim/mason/packages/omnisharp/OmniSharp" }, -- Linux
+                -- cmd = { "C:/Users/Barbaros/AppData/Local/nvim-data/mason/packages/omnisharp/OmniSharp" }, -- Windows
+                -- cmd = { "/Users/barbaroskurt/.local/share/nvim/mason/packages/omnisharp/OmniSharp" }, --macOS
+            },
         },
     },
     -- Mapping data with "desc" stored directly by vim.keymap.set().
@@ -212,41 +222,41 @@ local config = {
             {
                 "folke/tokyonight.nvim",
                 config = function()
-                  require("tokyonight").setup({
-                      -- your configuration comes here
-                      -- or leave it empty to use the default settings
-                      style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-                      light_style = "day", -- The theme is used when the background is set to light
-                      transparent = false, -- Enable this to disable setting the background color
-                      terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-                      styles = {
-                          -- Style to be applied to different syntax groups
-                          -- Value is any valid attr-list value for `:help nvim_set_hl`
-                          comments = { italic = true },
-                          keywords = { italic = true },
-                          functions = {},
-                          variables = {},
-                          -- Background styles. Can be "dark", "transparent" or "normal"
-                          sidebars = "dark", -- style for sidebars, see below
-                          floats = "dark", -- style for floating windows
-                      },
-                      sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-                      day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-                      hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-                      dim_inactive = false, -- dims inactive windows
-                      lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-                      --- You can override specific color groups to use other groups or a hex color
-                      --- function will be called with a ColorScheme table
-                      ---@param colors ColorScheme
-                      on_colors = function(colors)
-                      end,
-                      --- You can override specific highlights to use other groups or a hex color
-                      --- function will be called with a Highlights and ColorScheme table
-                      ---@param highlights Highlights
-                      ---@param colors ColorScheme
-                      on_highlights = function(highlights, colors)
-                      end,
-                  })
+                    require("tokyonight").setup({
+                        -- your configuration comes here
+                        -- or leave it empty to use the default settings
+                        style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+                        light_style = "day", -- The theme is used when the background is set to light
+                        transparent = false, -- Enable this to disable setting the background color
+                        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+                        styles = {
+                            -- Style to be applied to different syntax groups
+                            -- Value is any valid attr-list value for `:help nvim_set_hl`
+                            comments = { italic = true },
+                            keywords = { italic = true },
+                            functions = {},
+                            variables = {},
+                            -- Background styles. Can be "dark", "transparent" or "normal"
+                            sidebars = "dark", -- style for sidebars, see below
+                            floats = "dark", -- style for floating windows
+                        },
+                        sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+                        day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+                        hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+                        dim_inactive = false, -- dims inactive windows
+                        lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+                        --- You can override specific color groups to use other groups or a hex color
+                        --- function will be called with a ColorScheme table
+                        ---@param colors ColorScheme
+                        on_colors = function(colors)
+                        end,
+                        --- You can override specific highlights to use other groups or a hex color
+                        --- function will be called with a Highlights and ColorScheme table
+                        ---@param highlights Highlights
+                        ---@param colors ColorScheme
+                        on_highlights = function(highlights, colors)
+                        end,
+                    })
                 end,
             }
             -- You can disable default plugins as follows:
@@ -273,18 +283,18 @@ local config = {
         },
         -- All other entries override the require("<key>").setup({...}) call for default plugins
         ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
-          -- config variable is the default configuration table for the setup function call
-          -- local null_ls = require "null-ls"
+            -- config variable is the default configuration table for the setup function call
+            -- local null_ls = require "null-ls"
 
-          -- Check supported formatters and linters
-          -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-          -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-          config.sources = {
-              -- Set a formatter
-              -- null_ls.builtins.formatting.stylua,
-              -- null_ls.builtins.formatting.prettier,
-          }
-          return config -- return final config table
+            -- Check supported formatters and linters
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+            config.sources = {
+                -- Set a formatter
+                -- null_ls.builtins.formatting.stylua,
+                -- null_ls.builtins.formatting.prettier,
+            }
+            return config -- return final config table
         end,
         treesitter = { -- overrides `require("treesitter").setup(...)`
             ensure_installed = { 'html', 'css', 'javascript', 'typescript', 'tsx', 'json', 'go', 'lua', 'python', 'help', 'vim',
@@ -293,7 +303,7 @@ local config = {
         },
         -- use mason-lspconfig to configure LSP installations
         ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
-            -- ensure_installed = { "sumneko_lua" },
+            ensure_installed = { "html", "cssls", "tsserver", "emmet_ls", "tailwindcss", "eslint", "elixirls", "omnisharp", "sumneko_lua" },
         },
         -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
         ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
@@ -373,18 +383,18 @@ local config = {
     -- augroups/autocommands and custom filetypes also this just pure lua so
     -- anything that doesn't fit in the normal config locations above can go here
     polish = function()
-      -- Set up custom filetypes
-      -- vim.filetype.add {
-      --   extension = {
-      --     foo = "fooscript",
-      --   },
-      --   filename = {
-      --     ["Foofile"] = "fooscript",
-      --   },
-      --   pattern = {
-      --     ["~/%.config/foo/.*"] = "fooscript",
-      --   },
-      -- }
+        -- Set up custom filetypes
+        -- vim.filetype.add {
+        --   extension = {
+        --     foo = "fooscript",
+        --   },
+        --   filename = {
+        --     ["Foofile"] = "fooscript",
+        --   },
+        --   pattern = {
+        --     ["~/%.config/foo/.*"] = "fooscript",
+        --   },
+        -- }
     end,
 }
 
