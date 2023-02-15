@@ -5,10 +5,16 @@ mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
 
-Clone the AstroNvim repository
+Clone the AstroNvim repository - masOS
 
 ```shell
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+nvim +PackerSync
+```
+
+Clone the AstroNvim repository - Windows
+
+```shell
 git clone https://github.com/AstroNvim/AstroNvim $HOME\AppData\Local\nvim
 nvim +PackerSync
 ```
