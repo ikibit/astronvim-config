@@ -321,11 +321,14 @@ local config = {
         ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
             -- ensure_installed = { "python" },
         },
-        ["neo-tree"] = { -- overrides `require("mason-nvim-dap").setup(...)`
+        ["neo-tree"] = { -- overrides `require("neo-tree").setup(...)`
             source_selector = {
                 winbar = false,
             },
         },
+        ["notify"] = { -- overrides `require("notify").setup(...)`
+            background_colour = "#000000"
+        },        
     },
     -- LuaSnip Options
     luasnip = {
