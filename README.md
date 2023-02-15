@@ -9,6 +9,7 @@ Clone the AstroNvim repository
 
 ```shell
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone https://github.com/AstroNvim/AstroNvim $HOME\AppData\Local\nvim
 nvim +PackerSync
 ```
 
